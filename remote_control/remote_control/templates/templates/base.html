@@ -10,7 +10,6 @@
     <meta name="save" content="history">
     <link rel = "Shortcut Icon" href="{% static 'favicon.ico' %} ">
     <!-- load MUI -->
-    <!-- <link href="//cdn.muicss.com/mui-0.6.9/css/mui.min.css" rel="stylesheet" type="text/css" /> -->
     <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />
     <script src="//cdn.muicss.com/mui-0.6.9/js/mui.min.js"></script>
     <script type="text/javascript">
@@ -28,46 +27,11 @@
 {% block whole_body %}
 <body class="mui--no-user-select" onkeydown="keydown_event(0)" onkeyup="keyup_event(0)" >
 
-
-
-
-
-
-  <!-- <div class="mui--z2 mui-appbar mui-container-fluid mui--bg-primary-dark mui--appbar-min-height mui--appbar-line-height">
-    <div class="mui-row">
-      <div class="mui-col-xs-1 mui-col-sm-2", align="center">
-        <form class="mui-form" action="/" method="get" id="back">
-          {% block left_button %}
-          {% endblock %}
-        </form>
-      </div>
-      <div class="mui-col-xs-10 mui-col-md-8 mui--text-headline", align="center">
-        <div class="mui--appbar-height mui--appbar-line-height">
-          {% block page_title %}
-          Nothing to see here
-          {% endblock %}
-        </div>
-      </div>
-      <div class="mui-col-xs-1 mui-col-sm-2", align="center">
-        <form class="mui-form" action="/cali/" method="get" id="settings">
-          {% block right_button %}
-          {% endblock %}
-        </form>
-      </div>
-    </div>
-  </div>
-  <br> -->
-
-
-
-
-
   <div class="wrapper">
       <div class="sidebar">
         <ul class="nav">
           <li><a href="/run/">Play!</a></li>
           <li><a href="/cali/">Settings</a></li>
-          <li><a href="/admin/">Admin</a></li>
           <li><a href="/">Exit</a></li>
         </ul>
       </div>
@@ -80,51 +44,20 @@
           </svg>
         </a>
         <!-- main content area: -->
-
-
         {% block content %}
         <div class="mui-panel", align="center">
           <img src="{% static 'fry-insane.jpg' %}"/>
         </div>
-        <div align="center">
-          <form action="/run/" method="get">
-            <button class="mui-btn mui-btn--danger">Let's rock!</button>
-          </form>
-        </div>
         {% endblock %}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <h1>Testing</h1>
       </div>
     </div>
-
-
 
     <script>
       document.querySelector('.button').addEventListener('click', () => {
         document.querySelector('.content').classList.toggle('isOpen');
       });
     </script>
-
-
-
-
-
-
 
 </body>
 {% endblock %}
