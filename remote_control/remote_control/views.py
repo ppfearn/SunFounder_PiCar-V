@@ -151,3 +151,6 @@ def cali(request):
 
 def connection_test(request):
 	return HttpResponse('OK')
+
+def touch_test(request):
+	return render_to_response("touch.html")
