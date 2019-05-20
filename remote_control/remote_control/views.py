@@ -154,3 +154,6 @@ def connection_test(request):
 
 def touch_test(request):
 	return render_to_response("touch.html")
+
+def admin_test(request):
+	return render_to_response("admin.html")
