@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^run/$', views.run),
     url(r'^cali/$', views.cali),
     url(r'^connection_test/$', views.connection_test),
-    url(r'^touch_test/$', views.touch_test),
+    url(r'^touch_test', views.touch_test),
+    url(r'^admin_test', views.admin_test),
 ]
