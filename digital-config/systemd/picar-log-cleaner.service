@@ -1,0 +1,10 @@
+[Unit]
+Description=PiCar Log Cleaner Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/bin/bash /home/pi/SunFounder_PiCar-V/digital-config/bash-scripts/log-cleaner.sh 
+
+[Install]
+WantedBy=multi-user.target

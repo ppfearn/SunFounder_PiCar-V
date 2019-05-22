@@ -41,3 +41,11 @@ sudo cp ~/SunFounder_PiCar-V/digital-config/systemd/picar.service /lib/systemd/s
 sudo chmod 644 /lib/systemd/system/picar.service
 # below requires reboot, but this should be taken care of at the end of the install dependencies script
 sudo systemctl enable picar
+
+# systemd log cleanup service
+sudo cp ~/SunFounder_PiCar-V/digital-config/systemd/picar-log-cleaner.service /lib/systemd/system
+sudo cp ~/SunFounder_PiCar-V/digital-config/bash-scripts/log-cleaner.sh ~/
+sudo chmod a+x ~/log-cleaner.sh
+sudo chmod 644 /lib/systemd/system/picar-log-cleaner.service
+# below requires reboot, but this should be taken care of at the end of the install dependencies script
+sudo systemctl enable picar-log-cleaner
