@@ -34,7 +34,7 @@
         var protocol  = window.location.protocol;
         var host      = window.location.host;
         var pathname  = window.location.pathname;
-        url = protocol + "//" + host + pathname + "?action" + "=" + value;
+        url = protocol + "//" + host + "/run/" + "?action" + "=" + value;
         //document.getElementById("debug").innerHTML=url;
         xmlHttp.open( "GET", url, false );
         xmlHttp.send( null );
@@ -45,7 +45,7 @@
         var protocol  = window.location.protocol;
         var host      = window.location.host;
         var pathname  = window.location.pathname;
-        url = protocol + "//" + host + pathname + "?speed" + "=" + value;
+        url = protocol + "//" + host + "/run/" + "?speed" + "=" + value;
         //document.getElementById("debug").innerHTML=url;
         xmlHttp.open( "GET", url, false );
         xmlHttp.send( null );
