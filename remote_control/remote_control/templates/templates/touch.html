@@ -29,6 +29,12 @@
 			return Math.round(mapToThumbControl);
 		}
 
+		function directionForCoordinate(xPosition) {
+			var mapToBox = xPosition - 150;
+			var mapToThumbControl = mapToBox * -1 * 0.5;
+			return Math.round(mapToThumbControl);
+		}
+
 		function run_action(value){
         var xmlHttp  = new XMLHttpRequest();
         var protocol  = window.location.protocol;
@@ -92,6 +98,7 @@
 				console.log(speedForCoordinate(py));
 
 				var speed = speedForCoordinate(py);
+				var direction = directionForCoordinate(px);
 
 				if (speed > 5) {
 					run_action("forward");
@@ -101,6 +108,14 @@
 					set_speed((speed * -1).toString());
 				} else {
 					run_action("stop");
+				}
+
+				if (direction > 25) {
+					run_action("fwleft");
+				} else if (direction < -25) {
+					run_action("fwright");
+				} else {
+					run_action("fwstraight");
 				}
 			}
 			updateStarted = false;
