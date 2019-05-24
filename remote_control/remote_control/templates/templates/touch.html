@@ -33,8 +33,8 @@
         var xmlHttp  = new XMLHttpRequest();
         var protocol  = window.location.protocol;
         var host      = window.location.host;
-        var pathname  = window.location.pathname;
-        url = protocol + "//" + host + "/run/" + "?action" + "=" + value;
+        var pathname  = "/run/";
+        url = protocol + "//" + host + pathname + "?action" + "=" + value;
         //document.getElementById("debug").innerHTML=url;
         xmlHttp.open( "GET", url, false );
         xmlHttp.send( null );
@@ -44,8 +44,8 @@
         var xmlHttp  = new XMLHttpRequest();
         var protocol  = window.location.protocol;
         var host      = window.location.host;
-        var pathname  = window.location.pathname;
-        url = protocol + "//" + host + "/run/" + "?speed" + "=" + value;
+        var pathname  = "/run/";
+        url = protocol + "//" + host + pathname + "?speed" + "=" + value;
         //document.getElementById("debug").innerHTML=url;
         xmlHttp.open( "GET", url, false );
         xmlHttp.send( null );
@@ -91,14 +91,14 @@
 				console.log('drawn circle at ' + px + ',' + py);
 				console.log(speedForCoordinate(py));
 
-				var speedForCoordinate = py;
+				var speed = speedForCoordinate(py);
 
-				if (py > 5) {
+				if (speed > 5) {
 					run_action("forward");
-					set_speed(py.toString());
-				} else if (py < -5) {
+					set_speed(speed.toString());
+				} else if (speed < -5) {
 					run_action("backward");
-					set_speed((py * -1).toString());
+					set_speed((speed * -1).toString());
 				} else {
 					run_action("stop");
 				}
@@ -108,7 +108,7 @@
 		function ol() {
 			canvas = document.getElementById('canvas');
 			ctx = canvas.getContext('2d');
-			timer = setInterval(update, 20);
+			timer = setInterval(update, 100);
 			canvas.addEventListener('touchend', function () {
 				ctx.clearRect(0, 0, w, h);
 			});
