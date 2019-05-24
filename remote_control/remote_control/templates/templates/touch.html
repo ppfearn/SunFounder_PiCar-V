@@ -20,6 +20,9 @@
 		var w = 0;
 		var h = 0;
 		var timer;
+		var apiTimer;
+		var speed = 0;
+		var direction = 0;
 		var updateStarted = false;
 		var touches = [];
 
@@ -97,10 +100,14 @@
 				console.log('drawn circle at ' + px + ',' + py);
 				console.log(speedForCoordinate(py));
 
-				var speed = speedForCoordinate(py);
-				var direction = directionForCoordinate(px);
+				speed = speedForCoordinate(py);
+				direction = directionForCoordinate(px);
+			}
+			updateStarted = false;
+		}
 
-				if (speed > 5) {
+		function drive() {
+			if (speed > 5) {
 					run_action("forward");
 					set_speed(speed.toString());
 				} else if (speed < -5) {
@@ -117,13 +124,13 @@
 				} else {
 					run_action("fwstraight");
 				}
-			}
-			updateStarted = false;
 		}
+
 		function ol() {
 			canvas = document.getElementById('canvas');
 			ctx = canvas.getContext('2d');
-			timer = setInterval(update, 100);
+			timer = setInterval(update, 20);
+			apiTimer = setInterval(drive, 1000);
 			canvas.addEventListener('touchend', function () {
 				ctx.clearRect(0, 0, w, h);
 			});
