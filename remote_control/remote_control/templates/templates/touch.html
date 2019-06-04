@@ -33,8 +33,7 @@
 		}
 
 		function directionForCoordinate(xPosition) {
-			var mapToBox = xPosition - 150;
-			var mapToThumbControl = mapToBox * -1 * 0.5;
+			var mapToThumbControl = xPosition * 0.5;
 			return Math.round(mapToThumbControl);
 		}
 
@@ -55,6 +54,18 @@
         var host      = window.location.host;
         var pathname  = "/run/";
         url = protocol + "//" + host + pathname + "?speed" + "=" + value;
+        //document.getElementById("debug").innerHTML=url;
+        xmlHttp.open( "GET", url, false );
+        xmlHttp.send( null );
+        return xmlHttp.responseText;
+      }
+
+			function set_angle(value) {
+        var xmlHttp  = new XMLHttpRequest();
+        var protocol  = window.location.protocol;
+        var host      = window.location.host;
+        var pathname  = "/run/";
+        url = protocol + "//" + host + pathname + "?turn" + "=" + value;
         //document.getElementById("debug").innerHTML=url;
         xmlHttp.open( "GET", url, false );
         xmlHttp.send( null );
@@ -116,14 +127,8 @@
 				} else {
 					run_action("stop");
 				}
-
-				if (direction > 25) {
-					run_action("fwleft");
-				} else if (direction < -25) {
-					run_action("fwright");
-				} else {
-					run_action("fwstraight");
-				}
+			
+				set_angle(direction.toString());
 		}
 
 		function ol() {
