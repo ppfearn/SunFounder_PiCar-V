@@ -135,7 +135,7 @@
 			canvas = document.getElementById('canvas');
 			ctx = canvas.getContext('2d');
 			timer = setInterval(update, 20);
-			apiTimer = setInterval(drive, 1000);
+			apiTimer = setInterval(drive, 500);
 			canvas.addEventListener('touchend', function () {
 				ctx.clearRect(0, 0, w, h);
 			});
