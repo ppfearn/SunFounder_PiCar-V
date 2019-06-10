@@ -10,7 +10,8 @@ def followPath(duration, speed, angle):
   time.sleep(duration*.75)
   fw.turn(angle+90)
   time.sleep(duration*0.25)
-  bw.speed = speed *-1
+  bw.backward()
+  bw.speed = speed
   fw.turn(angle)
   time.sleep(duration*0.25)
   fw.turn(90)
