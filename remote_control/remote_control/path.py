@@ -8,10 +8,10 @@ bw = back_wheels.Back_Wheels(debug=False, db=db_file)
 def followPath(duration, speed, angle):
   bw.speed = speed
   time.sleep(duration*.75)
-  fw.angle(angle+90)
+  fw.turn(angle+90)
   time.sleep(duration*0.25)
   bw.speed = speed *-1
-  fw.angle(angle)
+  fw.turn(angle)
   time.sleep(duration*0.25)
-  fw.angle(90)
+  fw.turn(90)
   time.sleep(duration)
