@@ -6,6 +6,7 @@ fw = front_wheels.Front_Wheels(debug=False, db=db_file)
 bw = back_wheels.Back_Wheels(debug=False, db=db_file)
 
 def followPath(duration, speed, angle):
+  bw.forward()
   bw.speed = speed
   time.sleep(duration*.75)
   fw.turn(angle+90)
