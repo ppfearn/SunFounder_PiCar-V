@@ -1,6 +1,9 @@
 import time
 from picar import back_wheels, front_wheels
 
+fw = front_wheels.Front_Wheels(debug=False, db=db_file)
+bw = back_wheels.Back_Wheels(debug=False, db=db_file)
+
 def followPath(duration, speed, angle):
   bw.speed = speed
   time.sleep(duration*.75)
