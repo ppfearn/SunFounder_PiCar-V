@@ -15,6 +15,7 @@ from .driver import camera, stream
 from picar import back_wheels, front_wheels
 from django.http import HttpResponse
 import picar
+from . import path
 
 picar.setup()
 db_file = "/home/pi/SunFounder_PiCar-V/remote_control/remote_control/driver/config"
@@ -161,3 +162,16 @@ def touch_test(request):
 
 def admin_test(request):
 	return render_to_response("admin.html")
+
+def drive(request):
+    duration = 0
+    angle = 0
+    speed = 0
+    if 'duration' in request.GET:
+      duration = int(request.GET["duration"])
+    if 'angle' in request.GET:
+      angle = int(request.GET["angle"])
+    if 'speed' in request.GET:
+      speed = int(request.GET["speed"])
+    path.followPath(duration, speed, angle)
+    return HttpResponse('OK')
